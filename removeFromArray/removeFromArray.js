@@ -1,14 +1,21 @@
+// FIRST WORKING SOLUTION:
+
 // const removeFromArray = function(sourceArray, ...peskyArgs) {
 //   for (i = 0; i < sourceArray.length; i++) {
 //     for (j = 0; j < peskyArgs.length; j++){
-//       while (sourceArray[i] === peskyArgs[j]) { // while accounts for shifting indexes when element is spliced out
+//       while (sourceArray[i] === peskyArgs[j]) {
+          // while accounts for shifting indexes when element is spliced out
 //         sourceArray.splice(i, 1);
-//         j = 0; // resetting counter post-splice ensures ALL arguments are compared
+//         j = 0; 
+          // resetting counter post-splice ensures ALL arguments are compared
 //       }
 //     }
 //   }
 //   return sourceArray;
 // };
+
+
+// REWORKED SOLUTION using better array methods:
 
 // function removeFromArray(source, ...args) {
 //     return source.filter( (current) => {
@@ -16,6 +23,8 @@
 //     });
 // };
 
+
+// SOLUTION REVISED:
 function removeFromArray(source, ...args) {
     return source.filter(current => !args.includes(current))
 };
@@ -23,6 +32,8 @@ function removeFromArray(source, ...args) {
 
 module.exports = removeFromArray;
 
+
+// NOTES FROM FIRST SOLUTION:
 //Iterate through sourceArray
 //For each element, iterate through peskyArgs to compare values
 //if they match, splice() that element out of sourceArray

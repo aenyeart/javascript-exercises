@@ -1,14 +1,25 @@
-const removeFromArray = function(sourceArray, ...peskyArgs) {
-  for (i = 0; i < sourceArray.length; i++) {
-    for (j = 0; j < peskyArgs.length; j++){
-      while (sourceArray[i] === peskyArgs[j]) { // while accounts for shifting indexes when element is spliced out
-        sourceArray.splice(i, 1);
-        j = 0; // resetting counter post-splice ensures ALL arguments are compared
-      }
-    }
-  }
-  return sourceArray;
+// const removeFromArray = function(sourceArray, ...peskyArgs) {
+//   for (i = 0; i < sourceArray.length; i++) {
+//     for (j = 0; j < peskyArgs.length; j++){
+//       while (sourceArray[i] === peskyArgs[j]) { // while accounts for shifting indexes when element is spliced out
+//         sourceArray.splice(i, 1);
+//         j = 0; // resetting counter post-splice ensures ALL arguments are compared
+//       }
+//     }
+//   }
+//   return sourceArray;
+// };
+
+// function removeFromArray(source, ...args) {
+//     return source.filter( (current) => {
+//       return args.every( arg => arg !== current);
+//     });
+// };
+
+function removeFromArray(source, ...args) {
+    return source.filter(current => args.every(arg => arg !== current));
 };
+
 
 module.exports = removeFromArray;
 

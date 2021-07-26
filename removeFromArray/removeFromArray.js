@@ -17,7 +17,7 @@
 // };
 
 function removeFromArray(source, ...args) {
-    return source.filter(current => args.every(arg => arg !== current));
+    return source.filter(current => !args.includes(current))
 };
 
 
